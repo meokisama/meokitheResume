@@ -1,0 +1,1776 @@
+/*------------------------------------------------------------------
+
+[Table of contents]
+1. 3rd Part CSS Libraries
+2. Global CSS
+3. Left Part Content (Sidebar) CSS
+    3.1. Menu CSS
+4. Right Part Content CSS
+5. Home Section CSS
+6. Service Section CSS
+7. Portfolio Section CSS
+    7.1 Pretty Photo CSS
+    7.2 Single Portfolio CSS
+    7.3 Image Slider CSS
+8. Resume Section CSS
+9. Skills Section CSS
+10. Contact Section CSS
+11. Responsive CSS
+
+-------------------------------------------------------------------*/
+
+
+/* ===================================
+    1. 3rd Part CSS Libraries
+====================================== */
+
+@import url("css/clear.css");
+@import url("css/sm-clean.css");
+@import url("css/owl.carousel.min.css");
+@import url("css/owl.theme.default.min.css");
+@import url("css/prettyPhoto.css");
+@import url("css/common.css");
+
+
+/* ===================================
+    2. Global CSS
+====================================== */
+
+*, 
+::after, 
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;    
+    line-height: 30px;
+    font-weight: 400;       
+    color: #a88590;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+body a {
+    text-decoration: none;
+    color: #000000;    
+    transition: color .3s linear;
+}
+
+body a:hover {
+    color: #acacac;
+}
+
+body img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+.doc-loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: #362B2E;
+}
+
+.doc-loader img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;    
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+.content-1300 {
+    max-width: 1300px;
+}
+
+.section-info {
+    font-size: 22px;
+    line-height: 35px;
+}
+
+a.button {
+    display: inline-block;
+    color: #faefff;
+    border: 2px solid #f37b83;
+    text-align: center;
+    padding: 12px 38px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all .2s linear;
+}
+
+a.button:active {
+    position: relative;
+    top: 1px;   
+}
+
+a.button:hover {
+    color: white;
+    background-color: #f37b83;
+}
+
+
+/* ===================================
+    3. Left Part Content (Sidebar) CSS
+====================================== */
+
+.content-left {
+    position: fixed;
+    width: 380px;
+    background-color: #362B2E;
+    height: 100vh;
+    z-index: 1;
+}
+
+.content-left::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #554247;
+}
+
+.content-left::-webkit-scrollbar {
+    width: 7px;
+    background-color: #554247;
+}
+
+.content-left::-webkit-scrollbar-thumb {
+    background-color: #f37b83;
+}
+
+.content-left-wrapper {
+    padding-left: 75px;
+    position: relative;
+}
+
+.toggle-holder {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 3;
+}
+
+#toggle {
+    height: 23px;
+    width: 30px;
+    position: relative;
+}
+
+#toggle:hover {
+    cursor: pointer;
+}
+
+#toggle:before,
+#toggle:after {
+    content: '';
+    height: 3px;
+    width: 30px;
+    position: absolute;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: -webkit-transform 0.25s;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    top: 8px;
+    background-color: #faefff;
+}
+
+#toggle:before {
+    -webkit-transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -8px, 0px);
+    width: 21px;
+    margin-left: 0;
+}
+
+#toggle:hover:before {
+    margin-left: 9px;
+
+}
+
+#toggle.on:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0);
+    transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0);   
+    background-color: #fff;
+    margin-left: 0;
+    width: 26px;
+}
+
+#toggle.on:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    background-color: #fff;
+    width: 26px;
+}
+
+#toggle:after {
+    -webkit-transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 8px, 0);
+}
+
+#toggle .menu-line {
+    width: 13px;
+    height: 3px;
+    position: absolute;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    margin-left: 0;
+    top: 8px;
+    background-color: #faefff;
+}
+
+#toggle:hover .menu-line {
+    margin-left: 17px;
+}
+
+#toggle.on .menu-line {
+    opacity: 0;
+}
+
+.top-pagination {
+    position: relative;
+    z-index: 2;
+    padding-top: 150px;
+}
+
+.top-pagination > div {
+    display: inline-block;
+    font-weight: 700;
+    vertical-align: top; 
+}
+
+.current-num {
+    width: 25px;
+    position: relative;
+    height: 30px;
+    color: #c6646b;
+}
+
+.current-num span {
+    position: absolute;    
+    left: 0;    
+}
+
+.total-pages-num {
+    color: #faefff;
+}
+
+.pagination-div {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.pagination-div:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #faefff;
+    top: 12px;
+}
+
+.my-info-wrapper {
+    padding-top: 110px;
+}
+
+.my-info {
+    margin-bottom: 30px;
+}
+
+.my-info > p {
+    margin-bottom: 0;
+}
+
+.my-info-title {
+    font-size: 12px;
+    line-height: 100%;
+    color: #f37b83;
+    letter-spacing: 5px;
+}
+
+.my-info-content {
+    color: #faefff;
+}
+
+img.my-info-signature {
+    width: 215px;
+    padding-top: 35px;
+    padding-bottom: 30px;
+}
+
+.big-num {
+    position: fixed;
+    width: 380px;
+    left: 0;
+    bottom: 30px;
+    padding-left: 75px;
+    z-index: 1;
+}
+
+.current-big-num {
+    font-size: 160px;
+    -webkit-text-stroke: 3px #c6646b;
+    color: transparent;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: -4px;
+    position: relative;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+.icon-scroll,
+.icon-scroll:before {
+    position: absolute;
+    right: -18px;
+}
+
+.icon-scroll {
+    width: 38px;
+    height: 60px;
+    margin-left: -20px;
+    bottom: 25px;
+    margin-top: -35px;
+    box-shadow: inset 0 0 0 3px #c6646b;
+    border-radius: 25px;
+    transition: right .5s;
+}
+
+.icon-scroll:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #c6646b;
+    margin-left: -4px;
+    top: 8px;
+    border-radius: 4px;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: scroll;
+    animation-name: scroll;
+    left: 50%;
+}
+
+.icon-scroll:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: #362b2e;
+    width: 58px;
+    height: 80px;
+    border-radius: 25px;
+    transform: translate(-10px, -10px);
+    transition: all .3s;
+}
+
+@-webkit-keyframes scroll {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(35px);
+        transform: translateY(35px);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(35px);
+        transform: translateY(35px);
+    }
+}
+
+.open .icon-scroll {
+    right: 30px;
+    z-index: 1;
+}
+
+.open .icon-scroll:after {
+    background-color: transparent;
+}
+
+
+/* ===================================
+    3.1. Menu CSS
+====================================== */
+
+.menu-wrapper {
+    padding-top: 150px;
+}
+
+.menu-holder {
+    padding: 120px 50px 0 75px;
+    background-color: #f37b83;
+    width: 380px;
+    height: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translateX(-380px);
+    transition: transform .3s linear;
+    z-index: 1;
+}
+
+.open .menu-holder {
+    transform: translateX(0);
+}
+
+.main-menu.sm-clean {
+    background-color: transparent;
+    display: inline-block;
+}
+
+.sm-clean a {
+    position: relative;
+}
+
+.sm-clean a,
+.sm-clean a:hover, 
+.sm-clean a:focus, 
+.sm-clean a:active {
+    color: #ffffff;
+    padding: 5px 0;
+    font-size: 28px;
+    line-height: 50px;
+    font-weight: 700;
+}
+
+.sm-clean a:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 16px;
+    background-color: #c6646b;
+    transition: width .3s;
+    position: absolute;
+    left: -5%;
+    bottom: 7px;
+    z-index: -1;
+}
+
+.main-menu.sm-clean .sub-menu li a:after {
+    height: 3px;
+    bottom: 20px;
+}
+
+.sm-clean a.current:after, 
+.sm-clean a:hover:after, 
+.sm-clean a:active:after, 
+.sm-clean a.highlighted:after, 
+.sm-clean ul a:hover:after, 
+.sm-clean ul a:active:after, 
+.sm-clean ul a.highlighted:after,
+.sm-clean li.current > a:after {
+    width: 110%;
+}
+
+.sm-clean a span.sub-arrow {
+    color: #c6646b;
+}
+
+.main-menu.sm-clean .sub-menu li a {
+    color: #848484;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+
+/* ===================================
+    4. Right Part Content CSS
+====================================== */
+
+.content-right {
+    margin-left: 380px;
+    width: calc(100% - 380px);
+}
+
+.content-right-wrapper > div:last-of-type {
+    padding-bottom: 150px;
+}
+
+.section {
+    background-color: #302729;
+    position: relative;
+    padding-top: 150px;
+}
+
+.section-wrapper {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.full-width-section.section {
+    padding: 0;
+}
+
+.full-width-section .section-wrapper {
+    padding: 0 0 0 5%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    background-color: #f9f0ff;
+}
+
+h2.section-title {
+    font-size: 30px;
+    line-height: 100%;
+    margin-bottom: 30px;
+    padding-top: 0;
+}
+
+
+/* ===================================
+    5. Home Section CSS
+====================================== */
+
+.home-left-part {
+    flex: 0 0 370px;
+    margin-right: 5%;
+}
+
+.home-right-part {
+    flex: 1 0 0;
+    height: 100%;
+    background-image: url(images/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.site-des {
+    font-size: 28px;
+    color: #492d31;
+}
+
+h1.entry-title {
+    font-size: 100px;
+    line-height: 94px;
+    font-weight: 800;
+    color: #f37b83;
+}
+
+.site-info {
+    margin-top: 25px;
+}
+
+.social-links {
+    margin-top: 10vh;
+    margin-bottom: -5px;
+}
+
+.social-links a {
+    font-size: 12px;    
+    color: #492D31;
+    letter-spacing: 5px;
+    margin-right: 30px;
+}
+
+.social-links a:last-of-type {
+    margin-right: 0;
+}
+
+
+/* ===================================
+    6. Service Section CSS
+====================================== */
+
+.services-wrapper {
+    display: flex;
+    display: -webkit-flex; 
+    flex-wrap: wrap;    
+    -webkit-flex-wrap: wrap; 
+}
+
+.service-holder {
+    padding: 36px;
+    background-color: #362a2e;
+    width: 47%;
+    margin-right: 6%;
+    margin-bottom: 6%;
+}
+
+.service-holder img {
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.service-title {
+    font-size: 28px;
+    line-height: 42px;
+    color: #F37b83;
+    font-weight: 700;
+}
+
+.button-group-wrapper {
+    margin-top: 50px;
+}
+
+.button-group-wrapper > a {
+    margin-right: 1vw;
+}
+
+.button-group-wrapper > a:last-of-type {
+    margin-right: 0;
+}
+
+
+
+/* ===================================
+    7. Portfolio Section CSS
+====================================== */
+
+.category-filter {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    z-index: 1;
+    width: 25px;
+    height: 15px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.category-filter.hide {
+    opacity: 0;
+    transform: translateY(70px);   
+}    
+
+.category-filter-list > div {
+    margin-bottom: 5px;
+}
+
+.category-filter-list > div:last-of-type {
+    margin-bottom: 0;
+}
+
+.category-filter-icon {
+    width: 20px;
+    height: 3px;
+    background-color: #f37b83;
+    float: right;
+    transition: width .3s ease;
+}
+
+.category-filter:hover .category-filter-icon,
+.category-filter.filter-open .category-filter-icon {
+    width: 24px;
+}
+
+.category-filter-icon:after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 3px;
+    background-color: #f37b83;
+    transform: translate(-5px,8px);
+    transition: transform .3s ease;
+}
+
+.category-filter:hover .category-filter-icon:after, 
+.category-filter.filter-open .category-filter-icon:after {
+    transform: translate(4px,8px);
+}
+
+.category-filter-icon:before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 3px;
+    background-color: #f37b83;
+    transform: translate(10px,11px);
+    transition: transform .3s ease;
+}
+
+.category-filter:hover .category-filter-icon:before,
+.category-filter.filter-open .category-filter-icon:before {
+    transform: translate(14px,11px);
+}
+
+.category-filter-list {
+    background-color: #362b2e;
+    padding: 24px 20px;
+    width: 110px;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    font-size: 13px;
+    line-height: 22px;
+    color: #faefff;
+    z-index: 1;
+    cursor: pointer;
+    transition: opacity .5s, transform .5s;
+}
+
+.category-filter-list.hide {
+    transform: translateY(70px);   
+    opacity: 0;
+}
+
+.category-filter-list .button.is-checked {
+    color: #f37b83;
+}
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+.grid {
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.grid-item {
+    float: left;
+    font-size: 0;
+    line-height: 0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    overflow: hidden;
+    border: 30px solid transparent;
+    width: 50%;
+    transition: opacity .3s;
+}
+
+.grid-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    max-width: none;    
+}
+
+.grid-sizer,
+.grid-item {
+    width: calc(100% / 3);
+}
+
+.grid-item.p-one {
+    width: 100%;
+}
+
+.grid-item.p-one-third {
+    width: calc(100% / 3);
+}
+
+.grid-item.p-two-third {
+    width: calc(200% / 3);
+}
+
+.portfolio-text-holder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    font-size: 20px;
+    background-color: #f37b83;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+}
+
+.grid-item a.item-link:hover .portfolio-text-holder,
+.grid-item.portfolio-content-loading a.item-link .portfolio-text-holder {
+    transform: translateX(0);
+}
+
+#portfolio-grid.portfoio-items-mask .grid-item {
+    opacity: 0.2;
+}
+
+.grid-item.portfolio-content-loading {
+    opacity: 1 !important;
+}
+
+.portfolio-text-wrapper {
+    position: absolute;
+    left: 30px;
+    bottom: 0;
+}
+
+.portfolio-text {
+    font-size: 28px;
+    line-height: 100%;
+    font-weight: 700;
+    color: #faefff;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
+
+.portfolio-cat {
+    font-size: 15px;
+    color: #faefff;
+    line-height: 100%;
+}
+
+.portfolio-cat:before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 1px;
+    background-color: #faefff;
+    vertical-align: 4px;
+    margin-right: 5px;
+}
+
+.portfolio-load-content-holder {
+    opacity: 0;
+    transform: translateY(70px);
+    transition: all .5s ease;
+}
+
+.portfolio-load-content-holder.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio-load-content-holder.show.viceversa {
+    opacity: 0;
+    transform: translateY(70px);
+}
+
+.portfolio-content-wrapper {
+    display: none;
+}
+
+.portfolio-content-wrapper.show {
+    display: block;
+}
+
+.close-icon {
+    background-image: url(images/close-left-arrow.png);
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    background-color: rgb(243, 123, 131);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-size: 70px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.close-icon:hover {
+    background-position: -5px 0;
+}
+
+#portfolio-grid {
+    transition: all .5s ease;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+#portfolio-grid.hide {
+    opacity: 0;
+    transform: translateY(70px);    
+}
+
+.grid-item a.item-link.portfolio-content-loading:after, 
+.ajax-portfolio.portfolio-content-loading .portfolio-text-holder {
+    opacity: 1;
+}
+
+
+/* ===================================
+    7.1 Pretty Photo CSS
+====================================== */
+
+div.pp_default .pp_loaderIcon {
+    display: none !important;
+}
+
+div.pp_default a.pp_arrow_previous {
+    background-image: url(images/nav_left.png);
+    background-size: 20px 20px;    
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -99999999px;
+    transition: transform .3s ease;
+}
+
+div.pp_default a.pp_arrow_next {
+    background-image: url(images/nav_right.png);
+    background-size: 20px 20px;    
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -99999999px;
+    transition: transform .3s ease;
+}
+
+div.pp_default a.pp_arrow_previous:hover {
+    transform: translateX(-5px);
+}
+
+div.pp_default a.pp_arrow_next:hover {
+    transform: translateX(5px);
+}
+
+div.pp_default .pp_close {
+    background-image: url(images/close.png);
+    background-size: 30px 30px;
+    margin-top: 5px;
+    text-indent: -99999999px;
+    font-size: 0;
+    line-height: 0;    
+}
+
+div.pp_default .pp_next:hover {
+    background: url(images/nav_right.png);
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-size: 20px;
+}
+
+div.pp_default .pp_previous:hover {
+    background: url(images/nav_left.png);
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+    background-size: 20px;    
+}
+
+div.pp_default .pp_nav .currentTextHolder {
+    padding: 0 0 0 20px;
+    color: #fff;
+}
+
+div.pp_default .pp_content_container .pp_details {
+    margin-top: 30px !important;
+    z-index: 3;
+}
+
+div.pp_default .pp_description {
+    font-size: 15px;
+    line-height: 30px;
+    position: absolute;
+    top: -30px;
+    margin: 0;
+    color: #fff;
+    font-weight: 400;
+}
+
+
+/* ===================================
+    7.2 Single Portfolio CSS
+====================================== */
+
+.single-portfolio .section {
+    min-height: 100vh;
+}
+
+.portfolio-content {
+    padding-bottom: 1px;
+}
+
+
+/* ===================================
+    7.3 Image Slider CSS
+====================================== */
+
+.owl-stage {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.owl-carousel .owl-item {
+    width: 100%;
+}
+
+.owl-theme .owl-nav.disabled + .owl-dots {
+    margin-top: 20px;
+    line-height: 0;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    margin: 0;
+    background-color: #faefff;
+    transition: all .3s ease;
+    width: 18px;
+    height: 18px;
+    border-radius: 90%;
+}
+
+.owl-theme .owl-dots .owl-dot {
+    border-radius: 90%;
+    transition: all .3s ease;
+    margin: 4px;
+}
+
+.owl-theme .owl-dots .owl-dot:hover span {
+    background-color: #faefff;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+    background-color: #f37b83;
+}
+
+
+/* ===================================
+    8. Resume Section CSS
+====================================== */
+
+ul.timeline-holder {
+    margin: 0;
+    padding: 0 0 0 55px;
+}
+
+li.timeline-event {
+    margin: 0 0 42px 60px;
+    position: relative;
+    padding-top: 5px;
+    list-style: none;
+    transition: .3s;
+}
+
+li.timeline-event:hover {
+    color: #faefff;
+}
+
+li.timeline-event:before {
+    content: "";
+    width: 3px;
+    height: calc(100% - 20px);
+    position: absolute;
+    background-color: #f37b83;
+    left: -30px;
+    top: 51px;
+}
+
+li.timeline-event:last-child:before {
+    display: none;
+}
+
+li.timeline-event:last-child {
+    margin-bottom: 0;
+}
+
+li.timeline-event span.timeline-circle:after {
+    content: "";    
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: -8px;
+    top: 11px;
+    border-radius: 90%;
+    background-color: #f37b83;    
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+li.timeline-event:hover span.timeline-circle:after { 
+    opacity: 1;
+}
+
+span.timeline-circle {
+    position: absolute;
+    top: 0;
+    left: -30px;
+}
+
+span.timeline-circle:before {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 90%;
+    border: 3px solid #f37b83;
+    position: absolute;
+    left: -16px;
+    top: 3px;
+    z-index: 1;
+    transition: .3s;
+}
+
+.timeline-event-date {
+    position: absolute;
+    left: -115px;
+    top: 2px;
+    transition: .3s;
+    color: #f37b83;
+    font-weight: 700;
+}
+
+li.timeline-event:hover .timeline-event-date {
+    transform: translateX(-10px);
+}
+
+.timeline-event-content {
+    line-height: 160%;
+    text-align: left;
+    margin-left: 50px;
+}
+
+img.my-signature {
+    padding-top: 30px;
+    width: 215px; 
+}
+
+
+/* ===================================
+    9. Skills Section CSS
+====================================== */
+
+.skill-circle-holder > div:last-of-type {
+    margin-right: 0;
+}
+
+.skill-circle {
+    display: inline-block;
+    margin-right: 6%;
+    width: 20%;
+    max-width: 254px;
+}
+
+.skill-circle-wrapper canvas {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+span.skill-circle-num {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    font-weight: 700;
+    color: #f37b83;
+    letter-spacing: -1px;
+}
+
+p.skill-circle-text {
+    font-size: 22px;
+    color: #f37b83;
+    text-align: center;
+    padding-top: 20px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+}
+
+.skills-holder {
+    position: relative;
+}
+
+.skills-holder > div:last-of-type {
+    margin-bottom: 0;
+}
+
+.skill-holder {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.skill-holder:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.skill-percent {
+    font-size: 45px;
+    line-height: 100%;
+    font-weight: 700;
+    width: 100px;
+    float: right;
+    color: #554247;
+    letter-spacing: -1px;
+}
+
+.skill {
+    width: 100%;
+    height: 12px;
+    background-color: #554247;
+    margin-bottom: 15px;
+}
+
+.skill-text {
+    float: left;
+    width: calc(100% - 145px);
+    margin-top: 25px;
+}
+
+.skill-fill {
+    width: 10%;
+    height: 22px;
+    background-color: #f37b83;
+    transform: translateY(-5px);
+    transition: width .7s;
+}
+
+.skill-text span {
+    font-size: 22px;
+    line-height: 35px;
+}
+
+
+/* ===================================
+    10. Contact Section CSS
+====================================== */
+
+.contact-form {
+    padding: 65px;
+    background-color: #f37b83;
+}
+
+.contact-form p {
+    margin-bottom: 15px;
+}
+
+.contact-form input[type=text], 
+.contact-form input[type=email], 
+.contact-form textarea {
+    border: 0;
+    border-bottom: 2px solid #fff;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin: 10px 0;
+    height: 28px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    line-height: 25px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.contact-form input[name="your-name"] {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+p.contact-submit-holder {
+    margin-bottom: 0 !important;
+}
+
+.contact-form input[type=submit] {
+    display: inline-block;
+    border: 2px solid;
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 14px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: transparent;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    letter-spacing: 8px;
+    transition: opacity .3s ease;
+    cursor: pointer;
+}
+
+.contact-form input[type=submit]:hover {
+    opacity: 0.8;
+}
+
+.contact-form input[type=text]::-webkit-input-placeholder, 
+.contact-form input[type=email]::-webkit-input-placeholder, 
+.contact-form textarea::-webkit-input-placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;    
+    opacity: 1;  
+}
+
+.contact-form input[type=text]:-ms-input-placeholder, 
+.contact-form input[type=email]:-ms-input-placeholder, 
+.contact-form textarea:-ms-input-placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;    
+    opacity: 1;  
+}
+
+.contact-form input[type=text]::placeholder, 
+.contact-form input[type=email]::placeholder, 
+.contact-form textarea::placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    opacity: 1;    
+}
+
+
+/* ===================================
+    11. Responsive CSS
+====================================== */
+
+@media screen and (max-width: 1599px) {
+
+    .content-left {
+        width: 320px;
+    }
+
+    .content-left-wrapper {
+        padding-left: 55px;
+    }
+
+    .content-right {
+        margin-left: 320px;
+        width: calc(100% - 320px);
+    }
+
+    .menu-holder {
+        width: 320px;
+        transform: translateX(-320px);
+        padding-left: 55px;
+    }
+
+    .big-num {
+        width: 320px;
+    }
+
+    .current-big-num {
+        font-size: 130px;
+    }
+
+    .icon-scroll {
+        bottom: 17px;
+    }
+
+    .section {
+        padding-top: 75px;
+    }
+
+    .content-right-wrapper > div:last-of-type {
+        padding-bottom: 75px;        
+    }
+
+    .top-pagination,
+    .menu-wrapper {
+        padding-top: 110px;
+    }
+
+
+    .grid {
+        width: calc(100% + 4vw);
+        margin-left: -2vw;
+    }
+
+    .grid-item {
+        border-width: 1vw;
+    }
+
+    .category-filter {
+        right: -1vw;
+    }
+
+}
+
+@media screen and (min-width: 1360px) and (max-width: 1550px) {
+
+    .button-group-wrapper > .button {
+        display: table;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .button-group-wrapper > a:last-of-type {
+        margin-bottom: 0;
+    }
+
+}
+
+@media screen and (max-width: 1440px) {
+
+    .portfolio-text {
+        font-size: 20px;
+    }
+
+    span.skill-circle-num,
+    .skill-percent {
+        font-size: 35px;
+    }
+
+    .skill-percent {
+        margin-top: 11px;
+    }
+
+}
+
+@media screen and (max-width: 1360px) {
+   
+
+    .portfolio-content .one-half {
+        margin-bottom: 30px;
+    }
+
+    .content-left {
+        width: 90px;
+    }
+
+    .content-left-wrapper {
+        padding-left: 34px;
+    }
+
+    .content-right {
+        margin-left: 90px;
+        width: calc(100% - 90px);
+    }
+
+    .content-1300 {
+        margin: 0 auto;
+    }
+
+    .top-pagination,
+    .my-info-wrapper,
+    .big-num {
+        display: none;
+    }
+
+    .menu-wrapper {
+        padding-top: 0;
+    }  
+
+    .service-holder {
+        margin-right: 2vw;
+        margin-bottom: 2vw;
+    }
+
+    h2.section-title {
+        padding-bottom: 0;
+    }
+
+    .skill-holder {
+        margin-bottom: 0;
+    }
+
+    .skills-holder.sec-skills-holder {
+        margin-top: -60px;
+    }    
+
+}
+
+
+@media screen and (max-width: 1300px) {
+ 
+ .one-half {
+        width: 100%;
+        margin-bottom: 60px;
+        margin-right: 0;
+    }
+
+    .one-half.last {
+        margin-bottom: 0;
+    }
+
+    .one-half > p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .service-holder img {
+        margin-bottom: 0;
+    }
+
+}
+
+
+@media screen and (max-width: 1020px) {
+
+    .content-left {
+        height: 55px;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .toggle-holder {
+        top: 15px;
+        left: 15px;
+    }
+
+    .top-pagination {
+        display: inline-block;
+        padding-top: 10px;
+        padding-right: 20px;
+        float: right;
+    }
+
+    .content-right {
+        margin-left: 0;
+        width: 100%;        
+    }         
+
+    .service-title {
+        font-size: 25px;
+    }
+
+    .grid {
+        width: calc(100% + 30px);
+        margin-left: -15px;
+    }
+
+    .category-filter {
+        right: 0;
+    }
+
+    .grid-sizer, 
+    .grid-item {
+        width: 50% !important;
+        border-width: 15px;
+    }     
+    
+    .close-icon {
+        width: 60px;
+        height: 60px;
+        background-size: 60px;
+    }
+
+    .skill-circle-holder {
+        text-align: center;
+    }
+
+    .skill-circle-holder > div:nth-of-type(2n) {
+        margin-right: 0 !important;
+    }
+
+    .skill-circle {
+        width: auto;
+        width: 44%;
+        margin-bottom: 40px !important;
+        margin-right: 10% !important;
+    }
+
+    .skill-circle-holder > div:nth-last-of-type(-n+2) {
+        margin-bottom: 0 !important;
+    }
+
+    li.timeline-event {
+        margin-bottom: 30px;
+    }
+
+}
+
+@media screen and (max-height: 880px) {    
+
+    .big-num {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 767px) {  
+
+    .full-width-section .section-wrapper {
+        height: auto;
+        padding: 75px 5%;
+    }  
+
+    .content-right-wrapper > div:first-of-type .section-wrapper {
+        padding-top: 125px;
+    }
+
+    .single-portfolio .content-right-wrapper > div:first-of-type .section-wrapper {
+        padding-top: 55px;
+    }
+
+    .home-left-part {
+        flex: 0 0 100%;
+        margin: 0;
+    }
+
+    .home-right-part {
+        display: none;    
+    }
+
+    h1.entry-title {
+        font-size: 50px;
+        line-height: 100%;
+    }
+
+    .site-des {
+        font-size: 20px;
+    }   
+
+    .service-holder {       
+        margin-bottom: 30px !important;
+        width: 100%;
+        margin-right: 0;
+    }  
+
+    .services-wrapper > div:last-of-type {
+        margin-bottom: 0 !important;
+    }
+
+    #portfolio-wrapper {
+        margin-top: 30px;
+    }
+
+    .category-filter-list {        
+        top: 0;
+    }
+
+    .grid {
+        width: 100%;
+        margin: 0;    
+    }
+
+    .category-filter {
+        top: -30px;        
+    }
+
+    .grid-sizer, 
+    .grid-item {
+        width: 100% !important;
+    }
+
+    .grid-item {
+        border: 0;
+        margin-bottom: 30px;    
+    }
+
+    #portfolio-grid > div:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .timeline-event-content {
+        margin-left: 10px;
+    }
+
+    li.timeline-event {
+        margin-left: 30px;
+    }
+
+    ul.timeline-holder {
+        padding-left: 70px;
+    }
+
+    .timeline-event-date {
+        left: -100px;
+    }
+
+    .skill-holder {
+        margin-bottom: 35px;
+    }
+
+    .skills-holder.sec-skills-holder {
+        margin-top: -25px;
+    }
+
+    .skill-circle-holder {
+        display: block !important;
+    }     
+
+    .skill-text {
+        width: 100%;
+    }
+
+    .skill-percent {
+        position: absolute;
+        top: -30px;
+    }
+
+    .skill {
+        margin-bottom: 5px;
+    }
+
+    .contact-form {
+        padding: 7%;
+    }
+
+    .contact-form input[type=submit] {
+        font-size: 13px;
+        padding: 15px;
+    }
+
+}
+
+@media screen and (max-width: 650px) {     
+
+    .menu-holder {
+        width: 100%;
+        transform: translateX(-100%);
+        padding-top: 70px;
+        padding-left: 20px;
+        overflow: auto;
+    }
+
+    .button-group-wrapper > a:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .skill-circle-holder > div:nth-of-type(n) {
+        display: table !important;
+        width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .skill-circle-holder > div:nth-last-of-type(2) {
+        margin-bottom: 40px !important;
+    }    
+
+    .skill-circle-wrapper canvas {
+        max-width: none;
+        max-height: none;
+    }
+
+}
+
+@media screen and (max-width: 480px) {    
+
+    .button-group-wrapper > .button {
+        display: table; 
+        margin-left: 0;
+        margin-bottom: 20px; 
+    }
+
+}
